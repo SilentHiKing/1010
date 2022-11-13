@@ -5,6 +5,12 @@ plugins {
     id 'maven-publish'
 }
 
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(11))
+}
+
+
+
 sourceSets {
     main {
         groovy {
@@ -50,7 +56,14 @@ gradlePlugin {
 
 publishing {
     repositories {
-
+        /*publications {
+            MyPlugin(MavenPublication) {
+                from components.java
+                groupId 'com.example.testplugin'
+                artifactId 'testplugin'
+                version "1.0.1"
+            }
+        }*/
         maven {
             url = uri('../localMavenRepository/snapshot')
 
