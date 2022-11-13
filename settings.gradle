@@ -1,0 +1,30 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven { url 'https://jitpack.io' }
+        maven { url "$rootDir/localMavenRepository/snapshot" }
+        maven { url "$rootDir/localMavenRepository/release" }
+    }
+
+}
+dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+
+    }
+
+}
+rootProject.name = "Test1"
+include ':app'
+include ':testplugin'
+include ':plugin1'
+include ':testplugin-lib'

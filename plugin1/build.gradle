@@ -1,0 +1,47 @@
+plugins {
+    id 'groovy' // Groovy Language
+    id 'org.jetbrains.kotlin.jvm' // Kotlin
+    id 'java-gradle-plugin' // Java Gradle Plugin
+    id 'maven-publish'
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDir 'src/main/groovy'
+        }
+
+        java {
+            srcDir 'src/main/java'
+        }
+
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+gradlePlugin {
+    plugins {
+        /*modularPlugin {
+            // Plugin id.
+            id = 'com.example.plugin1'
+            // Plugin implementation.
+            implementationClass = 'com.example.testplugin.EasyUpload'
+        }*/
+    }
+}
+
+
+
+publishing {
+    repositories {
+
+        maven {
+            url = uri('../localMavenRepository/snapshot')
+
+            group = "com.example.plugin1"
+            version = "1.0.0"
+        }
+    }
+}

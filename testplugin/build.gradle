@@ -1,0 +1,65 @@
+plugins {
+    id 'groovy' // Groovy Language
+    id 'org.jetbrains.kotlin.jvm' // Kotlin
+    id 'java-gradle-plugin' // Java Gradle Plugin
+    id 'maven-publish'
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDir 'src/main/groovy'
+        }
+
+        java {
+            srcDir 'src/main/java'
+        }
+
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+ext{
+    agpVersion = "7.3.1"
+    kotlinVersion = "1.7.20"
+}
+dependencies {
+
+    implementation("com.android.tools.build:gradle:${agpVersion}")
+    implementation("com.android.tools.build:gradle-api:${agpVersion}")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin-api:${kotlinVersion}")
+    compileOnly("org.ow2.asm:asm-commons:9.3")
+    compileOnly("commons-io:commons-io:2.6")
+}
+
+gradlePlugin {
+    plugins {
+        modularPlugin {
+            // Plugin id.
+            id = 'com.example.testplugin'
+            // Plugin implementation.
+            implementationClass = 'com.example.testplugin.MyPlugin'
+//            implementationClass = 'com.example.testplugin.ViewDoubleClickPluginKt'
+        }
+    }
+}
+
+
+
+publishing {
+    repositories {
+
+        maven {
+            url = uri('../localMavenRepository/snapshot')
+
+            group = "com.example.testplugin"
+            version = "1.0.0"
+        }
+    }
+}
+
+
+
+
