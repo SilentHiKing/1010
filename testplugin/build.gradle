@@ -36,8 +36,8 @@ dependencies {
     implementation("com.android.tools.build:gradle-api:${agpVersion}")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin-api:${kotlinVersion}")
-    compileOnly("org.ow2.asm:asm-commons:9.3")
-    compileOnly("commons-io:commons-io:2.6")
+    implementation("org.ow2.asm:asm-commons:9.3")
+    implementation("commons-io:commons-io:2.6")
 }
 
 gradlePlugin {
