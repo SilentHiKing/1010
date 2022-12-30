@@ -44,31 +44,25 @@ gradlePlugin {
     plugins {
         modularPlugin {
             // Plugin id.
-            id = 'com.example.testplugin'
-            // Plugin implementation.
+            id = 'com.example.testplugin.stand'
             implementationClass = 'com.example.testplugin.MyPlugin'
-//            implementationClass = 'com.example.testplugin.ViewDoubleClickPluginKt'
         }
     }
 }
 
-
+group 'com.example.testplugin'
+version "1.0.2"
 
 publishing {
     repositories {
-        /*publications {
+        publications {
             MyPlugin(MavenPublication) {
                 from components.java
-                groupId 'com.example.testplugin'
-                artifactId 'testplugin'
-                version "1.0.1"
+                artifactId 'stand_plugin'
             }
-        }*/
+        }
         maven {
             url = uri('../localMavenRepository/snapshot')
-
-            group = "com.example.testplugin"
-            version = "1.0.0"
         }
     }
 }

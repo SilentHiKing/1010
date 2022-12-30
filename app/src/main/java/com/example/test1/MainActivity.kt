@@ -55,7 +55,7 @@ import kotlin.collections.HashMap
          Trace.beginSection("MyAdapter.onCreateViewHolder")
          println("hello")
          try {
-             ARouter.getInstance().build("/testone/activity2").navigation()
+//             ARouter.getInstance().build("/testone/activity2").navigation()
 
 //             throw Exception("a的值大于0，不符合要求")
          } catch (e: Exception) {
